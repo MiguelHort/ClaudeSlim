@@ -21,7 +21,7 @@
 Envie esta mensagem ao Claude, no **Claude Code** ou no **chat do Claude**:
 
 ```text
-Instale o ClaudeSlim neste projeto: https://github.com/MiguelHort/claudeslim
+Instale o ClaudeSlim neste projeto: https://github.com/MiguelHort/ClaudeSlim
 ```
 
 O Claude lê o [INSTALL.md](INSTALL.md), percebe onde está e age de acordo:
@@ -90,7 +90,7 @@ Prefere fazer sozinho? Copie o arquivo da edição escolhida para o seu projeto:
 
 ```bash
 mkdir -p .claude/skills/claudeslim
-curl -fsSL https://raw.githubusercontent.com/MiguelHort/claudeslim/main/skills/developer/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/MiguelHort/ClaudeSlim/main/skills/developer/SKILL.md \
   -o .claude/skills/claudeslim/SKILL.md
 ```
 
@@ -111,7 +111,7 @@ Seja realista: o skill orienta o **comportamento** do Claude. Ele **não** aumen
 ## 📁 Estrutura
 
 ```text
-claudeslim/
+ClaudeSlim/
 ├── README.md
 ├── INSTALL.md                  # instruções para o Claude Code instalar o skill
 ├── skills/

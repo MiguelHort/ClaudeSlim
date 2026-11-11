@@ -29,8 +29,8 @@
 Use the first method that works:
 
 1. Fetch the raw file:
-   `https://raw.githubusercontent.com/MiguelHort/claudeslim/main/skills/<edition>/SKILL.md`
-2. Claude Code only: `git clone --depth 1 https://github.com/MiguelHort/claudeslim <tmp-dir>` in a temporary directory.
+   `https://raw.githubusercontent.com/MiguelHort/ClaudeSlim/main/skills/<edition>/SKILL.md`
+2. Claude Code only: `git clone --depth 1 https://github.com/MiguelHort/ClaudeSlim <tmp-dir>` in a temporary directory.
 
 If the user gave you a link to a fork or another owner, use that owner and repository name instead. Read the file before you use it. It starts with a `---` frontmatter block that contains `name: claudeslim`. Never write the rules from memory. If you cannot fetch the file, say so and give the user the raw link (Part B, step 4).
 
@@ -71,7 +71,7 @@ In chat there is no folder to install into. ClaudeSlim stays **in the context of
 4. Explain how to make it stay in the project. The user does this by hand, because you cannot change project settings:
    1. Open the Project in Claude → **Set project instructions** (or **Edit instructions**).
    2. Paste the rule text. Copy it from the raw file, starting at the line `# CLAUDESLIM — ...`:
-      `https://raw.githubusercontent.com/MiguelHort/claudeslim/main/skills/<edition>/SKILL.md`
+      `https://raw.githubusercontent.com/MiguelHort/ClaudeSlim/main/skills/<edition>/SKILL.md`
    3. Save. New conversations in that Project will follow the rules.
 5. Offer to print the clean rule text in a code block so the user can copy it. Print it only if the user says yes.
 6. Be honest about the limit: you follow the rules in this conversation. They persist in new conversations only after the user saves them in the project instructions. If the conversation is not inside a Project, they last only for this conversation.
