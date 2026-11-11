@@ -1,30 +1,38 @@
 <div align="center">
 
-# ⚡ AI Efficiency Kit
+# ✂️ ClaudeSlim
 
-**Regras prontas para sua IA responder direto, com precisão e sem enrolação.**
+**Um skill para o Claude Code responder direto, com precisão e sem enrolação.**
 
 ![Versão](https://img.shields.io/badge/vers%C3%A3o-2.0-blue)
 ![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
-![Edições](https://img.shields.io/badge/edi%C3%A7%C3%B5es-Developer%20%7C%20Professional-orange)
+![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-orange)
 
-*Instale em qualquer projeto: cole o link deste repositório no Claude e pronto.*
+*Cole o link deste repositório no Claude Code e ele instala o skill no seu projeto.*
 
 </div>
 
-> 🇬🇧 **English:** a pair of drop-in rule files (Developer / Professional) that make AI assistants more direct, accurate and honest. Paste this repo's link into Claude Code and ask it to install the kit. See [INSTALL.md](INSTALL.md).
+> 🇬🇧 **English:** ClaudeSlim is a Claude Code skill (Developer / Professional editions) that makes Claude more direct, accurate and honest. Paste this repo's link into Claude Code and ask it to install it. See [INSTALL.md](INSTALL.md).
 
 ---
 
 ## 🚀 Instalação em 10 segundos
 
-Abra seu projeto no **Claude Code** (ou outro agente de IA) e envie:
+Abra seu projeto no **Claude Code** e envie:
 
 ```text
-Instale o AI Efficiency Kit neste projeto: https://github.com/MiguelHort/ai-efficiency-kit
+Instale o ClaudeSlim neste projeto: https://github.com/MiguelHort/claudeslim
 ```
 
-O agente lê o [INSTALL.md](INSTALL.md), escolhe a edição certa para o seu projeto, adiciona as regras no lugar que a sua ferramenta reconhece e mostra o que mudou. Ele **não faz commit** nem sobrescreve suas instruções existentes.
+O Claude lê o [INSTALL.md](INSTALL.md), escolhe a edição certa para o seu projeto e cria o skill em:
+
+```text
+.claude/skills/claudeslim/SKILL.md
+```
+
+Ele **não altera** seu `CLAUDE.md` nem outros arquivos, e **não faz commit**.
+
+Depois, **reinicie o Claude Code** (ou abra uma nova sessão) no projeto. O Claude Code só encontra skills novos quando a sessão começa.
 
 > Quer escolher a edição? Diga: *"…instale a edição Developer"* ou *"…a edição Professional"*.
 
@@ -36,14 +44,13 @@ O agente lê o [INSTALL.md](INSTALL.md), escolhe a edição certa para o seu pro
 |---|---|---|
 | **Para** | Trabalhar com código | Tarefas profissionais em geral |
 | **Ajuda a** | Criar funcionalidades e corrigir bugs, analisar código, logs e erros, revisar implementações, entender a estrutura do projeto | Escrever e revisar textos e e-mails, analisar documentos e dados, pesquisar e comparar alternativas, criar relatórios e apoiar decisões |
-| **Ferramentas** | Claude Code, Codex, Cursor, Copilot, Gemini CLI | Claude, ChatGPT e outros assistentes com instruções personalizadas |
-| **Arquivo** | [`AI-EFFICIENCY-DEVELOPER.md`](rules/AI-EFFICIENCY-DEVELOPER.md) | [`AI-EFFICIENCY-PROFESSIONAL.md`](rules/AI-EFFICIENCY-PROFESSIONAL.md) |
+| **Arquivo** | [`skills/developer/SKILL.md`](skills/developer/SKILL.md) | [`skills/professional/SKILL.md`](skills/professional/SKILL.md) |
 
-💡 **Dica:** instale **uma** edição por ambiente. Carregar as duas sem necessidade só duplica instruções.
+💡 **Dica:** instale **uma** edição por projeto. As duas usam o mesmo nome de skill (`claudeslim`), então a segunda substituiria a primeira.
 
 ---
 
-## ✨ O que o kit faz
+## ✨ O que o ClaudeSlim faz
 
 - 🎯 **Responde o pedido real**: vai direto ao ponto, sem repetir o que já foi dito e sem perguntar o que já está no contexto.
 - 🧠 **Economiza contexto sem perder qualidade**: evita ler ou repetir o que não é necessário, mas nunca corta detalhe importante.
@@ -57,54 +64,53 @@ O agente lê o [INSTALL.md](INSTALL.md), escolhe a edição certa para o seu pro
 
 ---
 
+## ✅ Como conferir se funcionou
+
+1. Reinicie o Claude Code no projeto.
+2. Digite `/` e procure por **`claudeslim`** na lista.
+3. Ou pergunte: *"Quais skills estão disponíveis neste projeto?"*
+
+---
+
 ## 🛠️ Instalação manual
 
-Prefere fazer sozinho? Copie a edição escolhida para o lugar que a sua ferramenta lê:
+Prefere fazer sozinho? Copie o arquivo da edição escolhida para o seu projeto:
 
-| Ferramenta | Onde colocar |
-|---|---|
-| **Claude Code** | Copie para `.claude/ai-efficiency.md` e adicione `@.claude/ai-efficiency.md` ao `CLAUDE.md` |
-| **Codex e outras ferramentas com `AGENTS.md`** | Cole o conteúdo no `AGENTS.md` |
-| **Cursor** | `.cursor/rules/ai-efficiency.mdc` (com `alwaysApply: true`) |
-| **GitHub Copilot** | `.github/copilot-instructions.md` |
-| **Gemini CLI** | `GEMINI.md` |
-| **Claude.ai, ChatGPT e similares** | Cole nas instruções do projeto ou nas instruções personalizadas |
+```bash
+mkdir -p .claude/skills/claudeslim
+curl -fsSL https://raw.githubusercontent.com/MiguelHort/claudeslim/main/skills/developer/SKILL.md \
+  -o .claude/skills/claudeslim/SKILL.md
+```
 
-Detalhes e como desinstalar: [INSTALL.md](INSTALL.md).
+Para a edição Professional, troque `developer` por `professional` na URL.
 
-> ⚠️ Não basta salvar o `.md` em qualquer pasta. A ferramenta precisa reconhecer aquele local ou mecanismo de instruções. Depois de instalar, abra uma **nova sessão** para as regras carregarem.
+**Para todos os seus projetos:** use `~/.claude/skills/claudeslim/SKILL.md` no lugar de `.claude/skills/claudeslim/SKILL.md`.
 
----
-
-## ✅ Como testar se funcionou
-
-1. Abra uma nova sessão na ferramenta.
-2. Peça algo simples, por exemplo: *"Quais regras de trabalho você está seguindo neste projeto?"*
-3. Confira se ela menciona as regras do AI Efficiency Kit.
+**Desinstalar:** apague a pasta `.claude/skills/claudeslim/`.
 
 ---
 
-## 🚫 O que o kit **não** faz
+## 🚫 O que o ClaudeSlim **não** faz
 
-Seja realista: as instruções orientam o **comportamento** da IA. Elas **não** aumentam cotas, velocidade, limites de uso nem a janela de contexto, e **não** garantem uma economia fixa de tokens.
+Seja realista: o skill orienta o **comportamento** do Claude. Ele **não** aumenta cotas, velocidade, limites de uso nem a janela de contexto, e **não** garante uma economia fixa de tokens. O Claude também decide quando carregar um skill com base na descrição dele. Para forçar o uso em uma conversa, digite `/claudeslim`.
 
 ---
 
 ## 📁 Estrutura
 
 ```text
-ai-efficiency-kit/
+claudeslim/
 ├── README.md
-├── INSTALL.md                          # instruções para o agente de IA instalar o kit
-├── rules/
-│   ├── AI-EFFICIENCY-DEVELOPER.md      # edição para código
-│   └── AI-EFFICIENCY-PROFESSIONAL.md   # edição para trabalho em geral
+├── INSTALL.md                  # instruções para o Claude Code instalar o skill
+├── skills/
+│   ├── developer/SKILL.md      # edição para código
+│   └── professional/SKILL.md   # edição para trabalho em geral
 ├── docs/
-│   └── AI_Efficiency_Kit_Guia.pptx     # guia rápido em slides
+│   └── ClaudeSlim_Guia.pptx    # guia rápido em slides
 └── LICENSE
 ```
 
-📊 Prefere slides? Veja o [guia rápido](docs/AI_Efficiency_Kit_Guia.pptx).
+📊 Prefere slides? Veja o [guia rápido](docs/ClaudeSlim_Guia.pptx).
 
 ---
 
