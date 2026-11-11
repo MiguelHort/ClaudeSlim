@@ -12,27 +12,24 @@
 
 </div>
 
-> 🇬🇧 **English:** ClaudeSlim is a Claude Code skill (Developer / Professional editions) that makes Claude more direct, accurate and honest. Paste this repo's link into Claude Code and ask it to install it. See [INSTALL.md](INSTALL.md).
+> 🇬🇧 **English:** ClaudeSlim is a Claude Code skill (Developer / Professional editions) that makes Claude more direct, accurate and honest. Paste this repo's link into Claude Code (installs the skill) or Claude chat (applies the rules to the project context) and ask it to install it. See [INSTALL.md](INSTALL.md).
 
 ---
 
 ## 🚀 Instalação em 10 segundos
 
-Abra seu projeto no **Claude Code** e envie:
+Envie esta mensagem ao Claude, no **Claude Code** ou no **chat do Claude**:
 
 ```text
 Instale o ClaudeSlim neste projeto: https://github.com/MiguelHort/claudeslim
 ```
 
-O Claude lê o [INSTALL.md](INSTALL.md), escolhe a edição certa para o seu projeto e cria o skill em:
+O Claude lê o [INSTALL.md](INSTALL.md), percebe onde está e age de acordo:
 
-```text
-.claude/skills/claudeslim/SKILL.md
-```
-
-Ele **não altera** seu `CLAUDE.md` nem outros arquivos, e **não faz commit**.
-
-Depois, **reinicie o Claude Code** (ou abra uma nova sessão) no projeto. O Claude Code só encontra skills novos quando a sessão começa.
+| Onde você está | O que acontece |
+|---|---|
+| 💻 **Claude Code** | Instala o skill no projeto, em `.claude/skills/claudeslim/SKILL.md`. Não altera seu `CLAUDE.md` nem outros arquivos e não faz commit. **Reinicie o Claude Code** depois: ele só encontra skills novos quando a sessão começa. |
+| 💬 **Chat do Claude** (claude.ai, app, Projetos) | **Não instala nada em pasta.** Aplica as regras na conversa, dentro do contexto do projeto, e explica como deixá-las fixas nas *instruções do projeto*. |
 
 > Quer escolher a edição? Diga: *"…instale a edição Developer"* ou *"…a edição Professional"*.
 
@@ -64,15 +61,30 @@ Depois, **reinicie o Claude Code** (ou abra uma nova sessão) no projeto. O Clau
 
 ---
 
+## 💬 No chat do Claude: como deixar fixo no projeto
+
+No chat, o Claude aplica o ClaudeSlim na conversa atual. Para valer também nas conversas futuras do mesmo projeto:
+
+1. Abra o Projeto no Claude e clique em **Set project instructions** (instruções do projeto).
+2. Cole o texto da edição escolhida, a partir da linha `# CLAUDESLIM — ...`. Use o arquivo [developer](skills/developer/SKILL.md) ou [professional](skills/professional/SKILL.md) e ignore o cabeçalho que vem antes dessa linha.
+3. Salve. Peça ao Claude: *"Mostre o texto do ClaudeSlim para eu colar"* se quiser que ele imprima o texto limpo.
+
+O Claude não consegue alterar as instruções do projeto sozinho, por isso esse passo é manual. Fora de um Projeto, as regras valem só para aquela conversa.
+
+---
+
 ## ✅ Como conferir se funcionou
 
+**Claude Code:**
 1. Reinicie o Claude Code no projeto.
 2. Digite `/` e procure por **`claudeslim`** na lista.
 3. Ou pergunte: *"Quais skills estão disponíveis neste projeto?"*
 
+**Chat:** pergunte *"Quais regras de trabalho você está seguindo?"* e confira se ele cita o ClaudeSlim.
+
 ---
 
-## 🛠️ Instalação manual
+## 🛠️ Instalação manual (Claude Code)
 
 Prefere fazer sozinho? Copie o arquivo da edição escolhida para o seu projeto:
 
